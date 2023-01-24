@@ -1,0 +1,15 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Rakhiazfa\LaravelSarp\Repository\RepositoryInterface;
+
+/**
+* $CLASSNAME$ interface.
+*
+*/
+
+interface $CLASSNAME$ extends RepositoryInterface
+{
+    
+}

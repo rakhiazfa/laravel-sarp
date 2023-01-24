@@ -1,0 +1,25 @@
+{
+    "name": "rakhiazfa/laravel-sarp",
+    "description": "Helps you in creating services and repository in laravel.",
+    "homepage": "https://github.com/rakhiazfa/laravel-sarp",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Rakhiazfa\\LaravelSarp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rakhi Azfa Rifansya",
+            "email": "rakhiazfa0421@gmail.com"
+        }
+    ],
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rakhiazfa\\LaravelSarp\\Providers\\SarpServiceProvider"
+            ]
+        }
+    }
+}
