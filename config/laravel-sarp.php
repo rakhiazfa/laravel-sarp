@@ -6,5 +6,5 @@
  */
 
 return [
-    'auth_bind' => true,
+    'auto_bind' => true,
 ];
