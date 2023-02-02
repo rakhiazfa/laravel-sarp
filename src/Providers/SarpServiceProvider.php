@@ -93,9 +93,9 @@ class SarpServiceProvider extends ServiceProvider
                 $directory = basename($directory);
 
                 $interface = 'App\Services\\' . $directory . '\\' . $file->getFilenameWithoutExtension();
-                $repository = 'App\Services\\' . $directory . '\\' . $file->getFilenameWithoutExtension() . 'Implementation';
+                $service = 'App\Services\\' . $directory . '\\' . $file->getFilenameWithoutExtension() . 'Implementation';
 
-                $this->app->bind($interface, $repository);
+                $this->app->bind($interface, $service);
             }
         }
     }
