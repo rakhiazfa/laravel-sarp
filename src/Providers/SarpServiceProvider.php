@@ -9,8 +9,6 @@ use Rakhiazfa\LaravelSarp\Commands\MakeRepositoryInterface;
 use Rakhiazfa\LaravelSarp\Commands\MakeService;
 use Rakhiazfa\LaravelSarp\Commands\MakeServiceInterface;
 
-use function PHPUnit\Framework\directoryExists;
-
 class SarpServiceProvider extends ServiceProvider
 {
     /**
@@ -61,7 +59,7 @@ class SarpServiceProvider extends ServiceProvider
          */
 
         $path = app_path('Repositories');
-        $directories = (directoryExists($path)) ? File::directories($path) : [];
+        $directories = (file_exists($path)) ? File::directories($path) : [];
 
         foreach ($directories as $directory) {
 
@@ -84,7 +82,7 @@ class SarpServiceProvider extends ServiceProvider
          */
 
         $path = app_path('Services');
-        $directories = (directoryExists($path)) ? File::directories($path) : [];
+        $directories = (file_exists($path)) ? File::directories($path) : [];
 
         foreach ($directories as $directory) {
 
