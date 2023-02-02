@@ -1,6 +1,6 @@
 <?php
 
-namespace $NAMESPACE$\Models;
+namespace $NAMESPACE$;
 
 use Rakhiazfa\LaravelSarp\Repository\RepositoryModel;
 use Illuminate\Database\Eloquent\Model;

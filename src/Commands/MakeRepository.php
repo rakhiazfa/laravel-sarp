@@ -48,7 +48,9 @@ class MakeRepository extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\Repositories\Models';
+        $model = Str::replace('RepositoryModel', '', $this->getNameInput());
+
+        return $rootNamespace . '\Repositories\\' . $model;
     }
 
     /**
@@ -64,7 +66,7 @@ class MakeRepository extends GeneratorCommand
 
         $classname = $model . 'Repository';
 
-        $stub = Str::replace('$NAMESPACE$', 'App\Repositories', $stub);
+        $stub = Str::replace('$NAMESPACE$', 'App\Repositories\\' . $model, $stub);
 
         $stub = Str::replace('$CLASSNAME$', $classname, $stub);
 
