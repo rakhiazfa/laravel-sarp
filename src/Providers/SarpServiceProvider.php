@@ -19,7 +19,8 @@ class SarpServiceProvider extends ServiceProvider
     public function register()
     {
         if (config('laravel-sarp.auto_bind')) {
-            $this->bindInterfaces();
+            $this->bindAllRepositories();
+            $this->bindAllServices();
         }
 
         $this->mergeConfigFrom(__DIR__ . '/../../config/laravel-sarp.php', 'laravel-sarp');
@@ -51,7 +52,7 @@ class SarpServiceProvider extends ServiceProvider
      * 
      * @return void
      */
-    protected function bindInterfaces()
+    protected function bindAllRepositories()
     {
         /**
          * Auto bind the repositories.
@@ -65,17 +66,26 @@ class SarpServiceProvider extends ServiceProvider
 
             $files = (file_exists($directory)) ? File::files($directory) : [];
 
+            $classes = [];
+
             foreach ($files as $file) {
 
                 $directory = basename($directory);
 
-                $interface = 'App\Repositories\\' . $directory . '\\' . $file->getFilenameWithoutExtension();
-                $repository = 'App\Repositories\\' . $directory . '\\' . $file->getFilenameWithoutExtension() . 'Model';
-
-                $this->app->bind($interface, $repository);
+                $classes[] = 'App\Repositories\\' . $directory . '\\' . $file->getFilenameWithoutExtension();;
             }
-        }
 
+            $this->app->bind($classes[0], $classes[1]);
+        }
+    }
+
+    /**
+     * Binds the service with its interface.
+     * 
+     * @return void
+     */
+    public function bindAllServices()
+    {
         /**
          * Auto the bind services.
          * 
@@ -88,15 +98,16 @@ class SarpServiceProvider extends ServiceProvider
 
             $files = (file_exists($directory)) ? File::files($directory) : [];
 
+            $classes = [];
+
             foreach ($files as $file) {
 
                 $directory = basename($directory);
 
-                $interface = 'App\Services\\' . $directory . '\\' . $file->getFilenameWithoutExtension();
-                $service = 'App\Services\\' . $directory . '\\' . $file->getFilenameWithoutExtension() . 'Implementation';
-
-                $this->app->bind($interface, $service);
+                $classes[] = 'App\Services\\' . $directory . '\\' . $file->getFilenameWithoutExtension();;
             }
+
+            $this->app->bind($classes[0], $classes[1]);
         }
     }
 }
