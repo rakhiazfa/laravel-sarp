@@ -107,7 +107,7 @@ class SarpServiceProvider extends ServiceProvider
                 $classes[] = 'App\Services\\' . $directory . '\\' . $file->getFilenameWithoutExtension();;
             }
 
-            $this->app->bind($classes[0], $classes[1]);
+            (count($classes) > 0) && $this->app->bind($classes[0], $classes[1]);
         }
     }
 }
