@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
 use Rakhiazfa\LaravelSarp\Commands\MakeRepository;
 use Rakhiazfa\LaravelSarp\Commands\MakeRepositoryInterface;
+use Rakhiazfa\LaravelSarp\Commands\MakeService;
+use Rakhiazfa\LaravelSarp\Commands\MakeServiceInterface;
 
 class SarpServiceProvider extends ServiceProvider
 {
@@ -34,6 +36,8 @@ class SarpServiceProvider extends ServiceProvider
             $this->commands([
                 MakeRepositoryInterface::class,
                 MakeRepository::class,
+                MakeServiceInterface::class,
+                MakeService::class,
             ]);
 
             $this->publishes([

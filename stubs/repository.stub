@@ -2,7 +2,7 @@
 
 namespace $NAMESPACE$;
 
-use Rakhiazfa\LaravelSarp\Repository\RepositoryModel;
+use Rakhiazfa\LaravelSarp\Repository\Repository;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\$MODEL$;
 use $NAMESPACE$\$CLASSNAME$;
@@ -12,7 +12,7 @@ use $NAMESPACE$\$CLASSNAME$;
 *
 */
 
-class $CLASSNAME$Model extends RepositoryModel implements $CLASSNAME$ 
+class $CLASSNAME$Model extends Repository implements $CLASSNAME$ 
 {
     /**
     * @var Model

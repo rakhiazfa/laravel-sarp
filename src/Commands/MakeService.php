@@ -5,21 +5,21 @@ namespace Rakhiazfa\LaravelSarp\Commands;
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Str;
 
-class MakeRepository extends GeneratorCommand
+class MakeService extends GeneratorCommand
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'make:repository {name}';
+    protected $signature = 'make:service {name}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a new repository class.';
+    protected $description = 'Create a new service class.';
 
     /**
      * Get the stub file for the generator.
@@ -28,19 +28,19 @@ class MakeRepository extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__ . '/../../stubs/repository.stub';
+        return __DIR__ . '/../../stubs/service.stub';
     }
 
     public function handle()
     {
         $this->input->setArgument(
             'name',
-            str_replace('Repository', '', $this->argument('name')) . 'Repository'
+            str_replace('Service', '', $this->argument('name')) . 'Service'
         );
 
-        $this->call('make:repository-interface', ['name' => $this->getNameInput()]);
+        $this->call('make:service-interface', ['name' => $this->getNameInput()]);
 
-        $this->input->setArgument('name', $this->argument('name') . 'Model');
+        $this->input->setArgument('name', $this->argument('name') . 'Implementation');
 
         return parent::handle();
     }
@@ -53,9 +53,9 @@ class MakeRepository extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        $model = Str::replace('RepositoryModel', '', $this->getNameInput());
+        $model = Str::replace('ServiceImplementation', '', $this->getNameInput());
 
-        return $rootNamespace . '\Repositories\\' . $model;
+        return $rootNamespace . '\Services\\' . $model;
     }
 
     /**
@@ -67,11 +67,11 @@ class MakeRepository extends GeneratorCommand
      */
     protected function replaceNamespace(&$stub, $name)
     {
-        $model = Str::replace('RepositoryModel', '', $this->getNameInput());
+        $model = Str::replace('ServiceImplementation', '', $this->getNameInput());
 
-        $classname = $model . 'Repository';
+        $classname = $model . 'Service';
 
-        $stub = Str::replace('$NAMESPACE$', 'App\Repositories\\' . $model, $stub);
+        $stub = Str::replace('$NAMESPACE$', 'App\Services\\' . $model, $stub);
 
         $stub = Str::replace('$CLASSNAME$', $classname, $stub);
 

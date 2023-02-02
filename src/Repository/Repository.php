@@ -5,9 +5,9 @@ namespace Rakhiazfa\LaravelSarp\Repository;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * RepositoryModel class.
+ * Repository class.
  */
-class RepositoryModel implements RepositoryInterface
+class Repository implements RepositoryInterface
 {
     /**
      * @var Model

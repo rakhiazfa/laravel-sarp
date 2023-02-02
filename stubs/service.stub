@@ -1,0 +1,29 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Rakhiazfa\LaravelSarp\Repository\Repository;
+use $NAMESPACE$\$CLASSNAME$;
+
+/**
+* $CLASSNAME$Model class.
+*
+*/
+
+class $CLASSNAME$Implementation implements $CLASSNAME$
+{
+    /**
+    * @var Repository
+    */
+    protected Repository $model;
+
+    /**
+    * @param Repository $model
+    *
+    */
+    public function __construct(Repository $model)
+    {
+        $this->model = $model;
+    }
+
+}
