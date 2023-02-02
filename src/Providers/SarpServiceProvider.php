@@ -9,6 +9,8 @@ use Rakhiazfa\LaravelSarp\Commands\MakeRepositoryInterface;
 use Rakhiazfa\LaravelSarp\Commands\MakeService;
 use Rakhiazfa\LaravelSarp\Commands\MakeServiceInterface;
 
+use function PHPUnit\Framework\directoryExists;
+
 class SarpServiceProvider extends ServiceProvider
 {
     /**
@@ -53,15 +55,50 @@ class SarpServiceProvider extends ServiceProvider
      */
     protected function bindInterfaces()
     {
+        /**
+         * Auto bind the repositories.
+         * 
+         */
+
         $path = app_path('Repositories');
-        $files = (file_exists($path)) ? File::files($path) : [];
+        $directories = (directoryExists($path)) ? File::directories($path) : [];
 
-        foreach ($files as $file) {
+        foreach ($directories as $directory) {
 
-            $interface = 'App\Repositories\\' . $file->getFilenameWithoutExtension();
-            $repository = 'App\Repositories\Models\\' . $file->getFilenameWithoutExtension() . 'Model';
+            $files = (file_exists($directory)) ? File::files($directory) : [];
 
-            $this->app->bind($interface, $repository);
+            foreach ($files as $file) {
+
+                $directory = basename($directory);
+
+                $interface = 'App\Repositories\\' . $directory . '\\' . $file->getFilenameWithoutExtension();
+                $repository = 'App\Repositories\\' . $directory . '\\' . $file->getFilenameWithoutExtension() . 'Model';
+
+                $this->app->bind($interface, $repository);
+            }
+        }
+
+        /**
+         * Auto the bind services.
+         * 
+         */
+
+        $path = app_path('Services');
+        $directories = (directoryExists($path)) ? File::directories($path) : [];
+
+        foreach ($directories as $directory) {
+
+            $files = (file_exists($directory)) ? File::files($directory) : [];
+
+            foreach ($files as $file) {
+
+                $directory = basename($directory);
+
+                $interface = 'App\Services\\' . $directory . '\\' . $file->getFilenameWithoutExtension();
+                $repository = 'App\Services\\' . $directory . '\\' . $file->getFilenameWithoutExtension() . 'Implementation';
+
+                $this->app->bind($interface, $repository);
+            }
         }
     }
 }
