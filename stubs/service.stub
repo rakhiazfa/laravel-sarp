@@ -4,9 +4,10 @@ namespace $NAMESPACE$;
 
 use Rakhiazfa\LaravelSarp\Repository\Repository;
 use $NAMESPACE$\$CLASSNAME$;
+use App\Repositories\$MODEL$\$MODEL$Repository;
 
 /**
-* $CLASSNAME$Model class.
+* $CLASSNAME$Implementation class.
 *
 */
 
@@ -15,15 +16,15 @@ class $CLASSNAME$Implementation implements $CLASSNAME$
     /**
     * @var Repository
     */
-    protected Repository $model;
+    protected Repository $repository;
 
     /**
-    * @param Repository $model
+    * @param Repository $repository
     *
     */
-    public function __construct(Repository $model)
+    public function __construct($MODEL$Repository $repository)
     {
-        $this->model = $model;
+        $this->repository = $repository;
     }
 
 }
