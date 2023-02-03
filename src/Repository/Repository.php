@@ -34,6 +34,16 @@ class Repository implements RepositoryInterface
 
     /**
      * @param array $attributes
+     * 
+     * @return Model
+     */
+    public function new(array $attributes): Model
+    {
+        return new Model($attributes);
+    }
+
+    /**
+     * @param array $attributes
      *
      * @return Model
      */

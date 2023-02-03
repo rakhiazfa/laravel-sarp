@@ -14,6 +14,13 @@ interface RepositoryInterface
      * 
      * @return Model
      */
+    public function new(array $attributes): Model;
+
+    /**
+     * @param array $attributes
+     * 
+     * @return Model
+     */
     public function create(array $attributes): Model;
 
     /**
