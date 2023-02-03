@@ -8,7 +8,7 @@
 $ composer require rakhiazfa/laravel-sarp
 ```
 
-- Publish package configuration ( optional ).
+- Publish package configuration ( important ).
 
 ```
 $ php artisan vendor:publish --provider="Rakhiazfa\LaravelSarp\Providers\SarpServiceProvider" --tag="config"
