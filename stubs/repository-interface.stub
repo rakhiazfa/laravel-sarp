@@ -11,5 +11,5 @@ use Rakhiazfa\LaravelSarp\Repository\RepositoryInterface;
 
 interface $CLASSNAME$ extends RepositoryInterface
 {
-    
+    //
 }

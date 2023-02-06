@@ -26,5 +26,4 @@ class $CLASSNAME$Implementation implements $CLASSNAME$
     {
         $this->repository = $repository;
     }
-
 }

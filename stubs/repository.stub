@@ -27,5 +27,4 @@ class $CLASSNAME$Model extends Repository implements $CLASSNAME$
     {
         $this->model = $model;
     }
-
 }

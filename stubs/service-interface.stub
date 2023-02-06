@@ -9,5 +9,5 @@ namespace $NAMESPACE$;
 
 interface $CLASSNAME$
 {
-    
+    //
 }
