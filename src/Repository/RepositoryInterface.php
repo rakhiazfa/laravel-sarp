@@ -37,8 +37,14 @@ interface RepositoryInterface
      * 
      * @return Model|null
      */
-    public function findWithTrash(int $id): ?Model;
+    public function findOrFail(int $id): ?Model;
 
+    /**
+     * @param int $id
+     * 
+     * @return Model|null
+     */
+    public function findWithTrash(int $id): ?Model;
 
     /**
      * @param int $id

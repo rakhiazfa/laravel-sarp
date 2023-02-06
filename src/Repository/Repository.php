@@ -76,6 +76,15 @@ class Repository implements RepositoryInterface
         return $this->model->with($with)->findOrFail($id);;
     }
 
+    /**
+     * @param int $id
+     * 
+     * @return Model|null
+     */
+    public function findOrFail(int $id): ?Model
+    {
+        return $this->model->findOrFail($id);
+    }
 
     /**
      * @param int $id
@@ -87,7 +96,6 @@ class Repository implements RepositoryInterface
         return $this->model::query()->withTrashed()->find($id);
     }
 
-
     /**
      * @param int $id
      * 
@@ -97,7 +105,6 @@ class Repository implements RepositoryInterface
     {
         return $this->model::query()->find($id)->delete();
     }
-
 
     /**
      * @param int $id
