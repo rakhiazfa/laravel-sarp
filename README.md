@@ -19,14 +19,14 @@ php artisan vendor:publish --provider="Rakhiazfa\LaravelSarp\Providers\SarpServi
 - Create a new repository.
 
 ```
-php artisan make:repository {name}
+php artisan make:repository UserRepository
 ```
 
 
 - Create a new service.
 
 ```
-php artisan make:service {name}
+php artisan make:service UserService
 ```
 
 ### License
