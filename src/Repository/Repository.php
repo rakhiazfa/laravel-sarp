@@ -33,6 +33,18 @@ class Repository implements RepositoryInterface
     }
 
     /**
+     * @param int $perPage
+     * 
+     * @return mixed
+     */
+    public function orderByIdDesc(int $perPage = 0): mixed
+    {
+        return $perPage > 0 ?
+            $this->model->orderBy('id', 'DESC')->paginate($perPage) :
+            $this->model->orderBy('id', 'DESC')->get();
+    }
+
+    /**
      * @param array $attributes
      * 
      * @return Model
