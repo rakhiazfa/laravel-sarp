@@ -15,11 +15,6 @@ use App\Repositories\$MODEL$\$MODEL$Repository;
 class $CLASSNAME$Implementation extends ServiceImplementation implements $CLASSNAME$
 {
     /**
-     * @var RepositoryModel
-     */
-    protected RepositoryModel $repository;
-
-    /**
      * @param RepositoryModel $repository
      *
      */

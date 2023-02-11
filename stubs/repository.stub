@@ -15,11 +15,6 @@ use $NAMESPACE$\$CLASSNAME$;
 class $CLASSNAME$Model extends RepositoryModel implements $CLASSNAME$ 
 {
     /**
-     * @var Model
-     */
-    protected Model $model;
-
-    /**
      * @param Model $model
      *
      */
