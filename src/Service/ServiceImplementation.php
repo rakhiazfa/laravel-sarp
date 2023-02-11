@@ -30,9 +30,11 @@ class ServiceImplementation implements ServiceInterface
     }
 
     /**
+     * @param array $with
+     * 
      * @return Collection
      */
-    public function orderByIdDesc(): Collection
+    public function orderByIdDesc(array $with = []): Collection
     {
         return $this->repository->orderByIdDesc();
     }

@@ -32,11 +32,13 @@ class RepositoryModel implements RepositoryInterface
     }
 
     /**
+     * @param array $with
+     * 
      * @return Collection
      */
-    public function orderByIdDesc(): Collection
+    public function orderByIdDesc(array $with = []): Collection
     {
-        return $this->model->orderBy('id', 'DESC')->get();
+        return $this->model->with($with)->orderBy('id', 'DESC')->get();
     }
 
     /**

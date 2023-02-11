@@ -16,9 +16,11 @@ interface RepositoryInterface
     public function all(): Collection;
 
     /**
+     * @param array $with
+     * 
      * @return Collection
      */
-    public function orderByIdDesc(): Collection;
+    public function orderByIdDesc(array $with = []): Collection;
 
     /**
      * @param int $id
