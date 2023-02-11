@@ -1,14 +1,11 @@
 <?php
 
-namespace Rakhiazfa\LaravelSarp\Repository;
+namespace Rakhiazfa\LaravelSarp\Service;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Repository interface.
- */
-interface RepositoryInterface
+interface ServiceInterface
 {
     /**
      * @return Collection

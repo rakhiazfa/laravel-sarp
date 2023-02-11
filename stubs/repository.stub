@@ -2,7 +2,7 @@
 
 namespace $NAMESPACE$;
 
-use Rakhiazfa\LaravelSarp\Repository\Repository;
+use Rakhiazfa\LaravelSarp\Repository\RepositoryModel;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\$MODEL$;
 use $NAMESPACE$\$CLASSNAME$;
@@ -12,19 +12,29 @@ use $NAMESPACE$\$CLASSNAME$;
 *
 */
 
-class $CLASSNAME$Model extends Repository implements $CLASSNAME$ 
+class $CLASSNAME$Model extends RepositoryModel implements $CLASSNAME$ 
 {
     /**
-    * @var Model
-    */
+     * @var Model
+     */
     protected Model $model;
 
     /**
-    * @param Model $model
-    *
-    */
+     * @param Model $model
+     *
+     */
     public function __construct($MODEL$ $model)
     {
         $this->model = $model;
+    }
+
+    /**
+     * @param array $attributes
+     * 
+     * @return Model
+     */
+    public function new(array $attributes = []): $MODEL$
+    {
+        return new $MODEL$($attributes);
     }
 }

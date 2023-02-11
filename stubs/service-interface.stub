@@ -2,12 +2,14 @@
 
 namespace $NAMESPACE$;
 
-/**
-* $CLASSNAME$ interface.
-*
-*/
+use Rakhiazfa\LaravelSarp\Service\ServiceInterface;
 
-interface $CLASSNAME$
+/**
+ * $CLASSNAME$ interface.
+ *
+ */
+
+interface $CLASSNAME$ extends ServiceInterface
 {
     //
 }

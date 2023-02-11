@@ -5,9 +5,9 @@ namespace $NAMESPACE$;
 use Rakhiazfa\LaravelSarp\Repository\RepositoryInterface;
 
 /**
-* $CLASSNAME$ interface.
-*
-*/
+ * $CLASSNAME$ interface.
+ *
+ */
 
 interface $CLASSNAME$ extends RepositoryInterface
 {
