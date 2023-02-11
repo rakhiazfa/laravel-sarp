@@ -24,11 +24,13 @@ class RepositoryModel implements RepositoryInterface
     }
 
     /**
+     * @param array $with
+     * 
      * @return Collection
      */
-    public function all(): Collection
+    public function all(array $with = []): Collection
     {
-        return $this->model->all();
+        return $this->model->with($with)->get();
     }
 
     /**

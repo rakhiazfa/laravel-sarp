@@ -22,9 +22,11 @@ class ServiceImplementation implements ServiceInterface
     }
 
     /**
+     * @param array $with
+     * 
      * @return Collection
      */
-    public function all(): Collection
+    public function all(array $with = []): Collection
     {
         return $this->repository->all();
     }

@@ -11,9 +11,11 @@ use Illuminate\Database\Eloquent\Model;
 interface RepositoryInterface
 {
     /**
+     * @param array $with
+     * 
      * @return Collection
      */
-    public function all(): Collection;
+    public function all(array $with = []): Collection;
 
     /**
      * @param array $with
